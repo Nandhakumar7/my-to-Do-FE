@@ -1,0 +1,15 @@
+.left-header {
+  height: 36px;
+  padding-right: 8px;
+  padding-left: 8px;
+  padding-top: 24px;
+  overflow: hidden;
+}
+.left-header .head-icon {
+  padding-left: 10px;
+}
+.left-header .lefthead-icon {
+  color: #3292EA;
+  height: 24px;
+  width: 24px;
+}/*# sourceMappingURL=Category-Header.css.map */

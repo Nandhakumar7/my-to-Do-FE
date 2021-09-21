@@ -1,0 +1,154 @@
+.subtask-container, .show {
+  width: 25.43%;
+  background-color: #F4F4F4;
+  display: none;
+  padding: 10px;
+  overflow: auto;
+  vertical-align: top;
+}
+.subtask-container .blue, .show .blue {
+  color: #3e69e4;
+}
+.subtask-container .leftlist-icon, .show .leftlist-icon {
+  margin-right: 10px;
+}
+.subtask-container .dark, .show .dark {
+  color: #34373d;
+}
+.subtask-container .subtask-headdiv, .show .subtask-headdiv {
+  width: 92.5%;
+  height: 28px;
+  background-color: white;
+  padding: 10px;
+  padding-left: 15px;
+  display: inline-block;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  color: #292b2fbf;
+  font-weight: 200;
+}
+.subtask-container .subtask-headdiv .subtask-head, .show .subtask-headdiv .subtask-head {
+  margin: 0;
+  display: inline-block;
+  font-size: 18px;
+  padding-left: 8px;
+}
+.subtask-container .subtask-headdiv .Completed, .show .subtask-headdiv .Completed {
+  text-decoration: line-through;
+}
+.subtask-container .subtask-headdiv .important, .show .subtask-headdiv .important {
+  position: absolute;
+  right: 10px;
+  display: inline-block;
+}
+.subtask-container .subtask-bottom, .show .subtask-bottom {
+  width: 100%;
+}
+.subtask-container .subtask-bottom .add-style, .show .subtask-bottom .add-style, .subtask-container .subtask-bottom .add-styleShow, .show .subtask-bottom .add-styleShow {
+  display: none;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  color: #0078d7;
+  font-size: 13px;
+  font-weight: 400;
+  padding-top: 10px;
+  overflow: auto;
+  margin: 0;
+}
+.subtask-container .subtask-bottom .list-lines, .show .subtask-bottom .list-lines {
+  height: 1px;
+  color: lightgray;
+  margin-left: 25px;
+  margin-bottom: 5px;
+  background-color: lightgray;
+  border-width: 0;
+}
+.subtask-container .subtask-bottom .add-styleShow, .show .subtask-bottom .add-styleShow {
+  display: inline-block;
+  position: absolute;
+  right: 8px;
+}
+.subtask-container .subtask-bottom .new-subtaskform, .show .subtask-bottom .new-subtaskform {
+  background-color: white;
+  width: 92.5%;
+  height: 28px;
+  position: relative;
+  padding: 10px;
+  padding-left: 15px;
+}
+.subtask-container .subtask-bottom .new-subtaskform #newsubTask, .show .subtask-bottom .new-subtaskform #newsubTask {
+  padding-left: 15px;
+  width: 72%;
+  height: 90%;
+  border: none;
+}
+.subtask-container .subtask-bottom .add-myday, .show .subtask-bottom .add-myday {
+  margin-top: 10px;
+  height: 18px;
+  padding: 15px;
+  background-color: white;
+  font-size: 15px;
+  color: #292b2fbf;
+  font-family: "Roboto", sans-serif;
+}
+.subtask-container .subtask-bottom .other-options, .show .subtask-bottom .other-options {
+  margin-top: 10px;
+  background-color: white;
+  width: 100%;
+  padding-top: 6px;
+  color: #292b2fbf;
+  font-size: 15px;
+  padding-bottom: 6px;
+  font-family: "Roboto", sans-serif;
+}
+.subtask-container .subtask-bottom .rightlist-icon, .show .subtask-bottom .rightlist-icon {
+  color: #292b2fbf;
+  padding-right: 10px;
+}
+.subtask-container .subtask-bottom .subtask-list, .show .subtask-bottom .subtask-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.subtask-container .subtask-bottom .line-style, .show .subtask-bottom .line-style {
+  height: 1px;
+  color: lightgray;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: lightgray;
+  border-width: 0;
+}
+.subtask-container .subtask-bottom .add-note, .show .subtask-bottom .add-note {
+  margin-top: 10px;
+  height: 90px;
+  width: 100%;
+  background-color: white;
+}
+.subtask-container .subtask-bottom .subtasks, .show .subtask-bottom .subtasks {
+  background-color: white;
+  width: 100%;
+}
+.subtask-container .subtask-bottom .subtask-liststyle:hover, .show .subtask-bottom .subtask-liststyle:hover {
+  cursor: pointer;
+}
+.subtask-container .subtask-bottom .subtask-liststyle, .show .subtask-bottom .subtask-liststyle {
+  padding: 10px;
+  padding-top: 6px;
+  height: 22px;
+  width: 92.5%;
+  background-color: white;
+  padding-left: 15px;
+  font-size: 15px;
+}
+.subtask-container .subtask-bottom .subtask-liststyle .steps-icon, .show .subtask-bottom .subtask-liststyle .steps-icon {
+  margin-right: 10px;
+}
+.subtask-container .subtask-bottom .subtask-liststyle .subtask-align, .show .subtask-bottom .subtask-liststyle .subtask-align {
+  margin-left: 12px;
+  font-family: "Roboto", sans-serif;
+}
+
+.show {
+  display: inline-block;
+  overflow: hidden;
+}/*# sourceMappingURL=Steps.css.map */

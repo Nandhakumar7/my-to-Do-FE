@@ -1,0 +1,90 @@
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+.left-container {
+  width: 22.52%;
+  height: 93.4vh;
+  background-color: #F4F4F4;
+  box-shadow: 1px 0px lightgray;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+.leftlist-icon {
+  color: #767678;
+}
+
+.lefthead-icon {
+  color: #3e69e4;
+}
+
+.new-listform {
+  height: 36px;
+  padding-left: 18px;
+}
+.new-listform ::-moz-placeholder {
+  color: #3292EA;
+  opacity: 1;
+}
+.new-listform :-ms-input-placeholder {
+  color: #3292EA;
+  opacity: 1;
+}
+.new-listform ::placeholder {
+  color: #3292EA;
+  opacity: 1;
+}
+.new-listform .text-box {
+  border: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 72%;
+  height: 90%;
+  background-color: #F4F4F4;
+}
+.new-listform .lefthead-icon {
+  color: #3292EA;
+}
+
+.listStyle {
+  height: 26px;
+  padding-left: 18px;
+  padding-top: 10px;
+}
+
+.clicked-list {
+  background-color: lightgray;
+  height: 26px;
+  padding-left: 18px;
+  padding-top: 10px;
+}
+
+.listStyle:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.last-list {
+  margin-bottom: 20px;
+}
+
+.listvalue-style {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #292b2fbf;
+  font-family: "Roboto", sans-serif;
+}
+
+.listvalue-style-color-blue {
+  color: #0078d7;
+}/*# sourceMappingURL=Category.css.map */

@@ -1,0 +1,21 @@
+.left-footer{
+    height: 48px;
+    width: 290px;
+    border-top: 1px solid lightgray;
+    position:absolute;                 
+    bottom:0;                         
+    left:0; 
+    .sub-icon {
+        width: 54px;
+        height: 40px;
+        display: inline-block;
+        vertical-align: top;
+        .leftfoot-icon{
+            color: #292b2fbf;
+            padding: 15px
+        }
+       .last-iconleft{
+            color: #3292EA;
+        }
+    }
+}

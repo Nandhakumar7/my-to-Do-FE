@@ -1,0 +1,155 @@
+.subtask-container{
+    width: 25.43%;
+    background-color: #F4F4F4;
+    display: none;
+    padding: 10px;
+    overflow: auto;
+    vertical-align: top;
+    .blue{
+        color:#3e69e4;
+    }
+    .leftlist-icon{
+        margin-right: 10px;
+    }
+    .dark{
+        color:#34373d;
+    }
+    .subtask-headdiv {
+        width: 92.5%;
+        height: 28px;
+        background-color: white;
+        padding: 10px;
+        padding-left: 15px;
+        display: inline-block;
+        position: relative;
+        font-family: 'Roboto', sans-serif;
+        color: #292b2fbf;
+        font-weight: 200;
+        .subtask-head {
+            margin: 0;
+            display: inline-block;
+            font-size: 18px; 
+            padding-left: 8px;
+        }
+        .Completed{
+            text-decoration: line-through;  
+        }
+        .important{
+            position:absolute;
+            right: 10px;
+            display: inline-block;
+        }
+    }
+    .subtask-bottom {
+        width: 100%;
+        .add-style {
+            display: none;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            color: #0078d7;
+            font-size: 13px;
+            font-weight: 400;
+            padding-top: 10px;
+            overflow: auto;
+            margin: 0;
+        }
+        .list-lines{
+            height: 1px;
+            color: lightgray;
+            margin-left: 25px;
+            margin-bottom: 5px;
+            background-color: lightgray;
+            border-width: 0;
+        }
+       .add-styleShow{
+            @extend .add-style;
+            display: inline-block;
+            position: absolute;
+            right: 8px;
+        }
+        .new-subtaskform{
+            background-color: white;
+            width: 92.5%;
+            height: 28px;
+            position: relative;
+            padding: 10px;
+            padding-left: 15px;
+            #newsubTask {
+                padding-left: 15px;
+                width: 72%;
+                height: 90%;
+                border: none;
+           }
+        }
+        .add-myday {
+            margin-top: 10px;
+            height: 18px;
+            padding: 15px;
+            background-color: white;
+            font-size: 15px;
+            color: #292b2fbf;
+            font-family: 'Roboto', sans-serif;
+        }
+        .other-options{
+            margin-top: 10px;
+            background-color: white;
+            width: 100%;
+            padding-top: 6px;
+            color: #292b2fbf;
+            font-size: 15px;
+            padding-bottom: 6px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .rightlist-icon{
+            color: #292b2fbf;
+            padding-right: 10px;
+        }
+        .subtask-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .line-style {
+            height: 1px;
+            color: lightgray;
+            margin-top: 16px;
+            margin-bottom: 16px;
+            background-color: lightgray;
+            border-width: 0;
+        }
+        .add-note{
+            margin-top: 10px;
+            height: 90px;
+            width: 100%;
+            background-color: white;
+        }
+        .subtasks{
+            background-color: white;
+            width: 100%;
+        }
+        .subtask-liststyle:hover {
+            cursor: pointer;
+        }
+        .subtask-liststyle {
+            padding:10px;
+            padding-top: 6px;
+            height: 22px;
+            width: 92.5%;
+            background-color: white;
+            padding-left: 15px;
+            font-size: 15px;
+            .steps-icon{
+                margin-right: 10px;
+            }
+            .subtask-align {
+                margin-left: 12px;
+                font-family: 'Roboto', sans-serif;
+            }
+        }
+    }
+}
+.show {
+    display: inline-block;
+    overflow: hidden;
+    @extend .subtask-container;
+}

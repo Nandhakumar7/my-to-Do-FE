@@ -1,0 +1,66 @@
+.header {
+    width: 100%;
+    height: 40px;
+    padding-top: 8px;
+    background-color: #0078d7;
+    .headicon {
+      padding-left: 8px;
+      color: white;
+    }
+    .header-icons {
+        height: 16px;
+        width: 15px;
+        padding: 8px;
+        display: inline-block;
+    }
+    .left-icons{
+        height: 16px;
+        width: 21px;
+        padding: 8px;
+        padding-left: 12px;
+        display: inline-block;
+        vertical-align: top;
+        color: white;
+        margin-left: 0px;
+    }
+    .left-icon {
+       @extend .left-icons;
+        margin-left: 23.4%;
+    }
+    .left-icons:last-child {
+        padding-top: 0;
+    }
+    .heading {
+        height: 12px;
+        width: 44px;
+        padding-left: 24px;
+        padding-top: 8px;
+        text-align: left;
+        font-weight: 550;
+        color: white;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .search-box:hover {
+        background-color: white;
+        cursor: pointer;
+        .search {
+            background-color: white;
+        }
+    }
+    .search-box {
+        height: 22px;
+        width: 390px;
+        display: inline-block;
+        padding: 5px;
+        vertical-align: top;
+        margin-left: 24.30%;
+        background-color: lightblue;
+        .search {
+            width: 90%;
+            height: 100%;
+            border: none;
+            background-color: lightblue;
+        }
+    }
+}
