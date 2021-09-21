@@ -78,17 +78,17 @@ const dispatchValue = (dispatch:any) => {
           type: ADD_CATEGORY,
           value: result.data 
         })  
-        event.target.value= "";
+        event.target.value = "";
       }
 
     },
-    setCurrentCategory:(name:any) => {
+    setCurrentCategory: (name:any) => {
       dispatch({
         type:SET_CURRENT_CATEGORY,
         currentCategory:name
       })
     },
-    sendDateToStore:(categoryList:any) => {
+    sendDateToStore: (categoryList:any) => {
       dispatch({
         type:SET_CATEGORY_LIST,
         categoryList:categoryList

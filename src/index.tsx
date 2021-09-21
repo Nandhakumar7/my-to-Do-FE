@@ -4,7 +4,6 @@ import './index.css';
 import Login  from './Login/login'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import ProtectedRoute from './Route/protected-route'
 import {
   BrowserRouter,
   Route

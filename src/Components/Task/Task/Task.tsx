@@ -11,7 +11,7 @@ class Task extends React.Component<{}, { isShowButton :boolean }> {
   }  
 
   showaddButton = (event:any) => {
-    event.target.value =="" ?
+    event.target.value == "" ?
       this.setState({isShowButton :false}) : this.setState({isShowButton :true})
   }
 
@@ -25,8 +25,8 @@ class Task extends React.Component<{}, { isShowButton :boolean }> {
 
   render() {
     let prop:any = this.props;
-    let blankLines =[];
-    if(prop.currentCategory.tasks.length < 9){
+    let blankLines = [];
+    if(prop.currentCategory.tasks.length < 9) {
       let count = 9 - prop.currentCategory.tasks.length;
       for(let i = 0; i < count; i ++){
         blankLines.push(i);
@@ -37,7 +37,7 @@ class Task extends React.Component<{}, { isShowButton :boolean }> {
      * add new task to the category object
      * @param event contains user input value
      */
-    const addNewTask= async(event:any) => {
+    const addNewTask = async(event:any) => {
       if(event.key == "Enter") {
         let newTask = {
           "taskName": event.target.value,
@@ -47,7 +47,7 @@ class Task extends React.Component<{}, { isShowButton :boolean }> {
           "category_id":prop.currentCategory._id
         }
         prop.currentCategory.tasks.push(newTask);
-        event.target.value= "";
+        event.target.value = "";
         await prop.addNewTask(newTask)
         this.setCurrentCategory();
       }
@@ -92,7 +92,7 @@ class Task extends React.Component<{}, { isShowButton :boolean }> {
  * @param dispatch 
  * @returns actions
  */
-const dispatchValue =(dispatch:any) => {
+const dispatchValue = (dispatch:any) => {
   return { 
     addNewTask: (newTask:any) => {
       dispatch({ 
@@ -114,7 +114,7 @@ const dispatchValue =(dispatch:any) => {
         value:task
       })
     },
-    setCurrentCategory:(category:any) => {
+    setCurrentCategory: (category:any) => {
       dispatch({
         type:SET_CURRENT_CATEGORY,
         currentCategory:category
@@ -136,7 +136,7 @@ const dispatchValue =(dispatch:any) => {
  * @param state redux state value
  * @returns mapped prop
  */
-const mapStateToProbs=(state:any) => {
+const mapStateToProbs = (state:any) => {
   return {
     currentCategory: state.currentCategory,
     isProcessed : state.isprocessed,

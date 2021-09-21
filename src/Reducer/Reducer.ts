@@ -7,7 +7,7 @@ import { SET_CURRENT_TASK,
   UPDATE_TASK } from '../Actions/Action'
 const axios = require('axios')
 
-const initialState ={
+const initialState = {
   category:[{}],
   currentCategory:{
     "name":"Tasks",

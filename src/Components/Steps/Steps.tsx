@@ -22,7 +22,7 @@ class Step extends React.Component<{}, { isShowButton :boolean }> {
 
     //if tasks have steps then return the listelement
     if(prop.currentTask.steps) {
-      stepsList =(prop.currentTask.steps).map((step:any) =>
+      stepsList = (prop.currentTask.steps).map((step:any) =>
         <li className="subtask-liststyle">
           <i className="far fa-circle steps-icon blue"></i>
           <span className="line-liststyle">{step}</span>
@@ -34,14 +34,14 @@ class Step extends React.Component<{}, { isShowButton :boolean }> {
      * add new step to the task
      * @param event contains value for step
      */
-    const addNewStep= (event:any) => {
+    const addNewStep = (event:any) => {
       if(event.key == "Enter") {
         prop.currentTask.steps.push(event.target.value);
-        event.target.value= "";
+        event.target.value = "";
         prop.updateTaskSteps(prop.currentTask);
       }
     }
-    
+
     return (
       <div className={prop.isShowSteps ? "subtask-container show" :"subtask-container"}>
         <div className="subtask-headdiv">
@@ -92,7 +92,7 @@ class Step extends React.Component<{}, { isShowButton :boolean }> {
  * @param dispatch 
  * @returns actions
  */
-const dispatchValue =(dispatch:any) => {
+const dispatchValue = (dispatch:any) => {
   return { 
     updateTaskSteps: (task:any) => {
       dispatch({ 
@@ -123,7 +123,7 @@ const dispatchValue =(dispatch:any) => {
  * @param state redux state value
  * @returns mapped prop
  */
-const mapStateToProbs=(state:any) => {
+const mapStateToProbs = (state:any) => {
   return {
     currentTask: state.currentTask,
     isProcessed : state.isprocessed,
