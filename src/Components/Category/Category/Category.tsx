@@ -1,47 +1,47 @@
 import React from 'react';
 import './Category.css'
-import {ADD_CATEGORY, SET_CURRENT_CATEGORY, SET_CATEGORY_LIST} from '../../../Actions/Action'
+import { ADD_CATEGORY, 
+  GET_CATEGORY, 
+  GET_CURRENT_CATEGORY, 
+  SET_CURRENT_CATEGORY_TASKS } from '../../../Actions/Action'
 import { connect } from 'react-redux';
 import CategoryHeader from '../Category-Header/Category-Header'
 import CategoryFooter from '../Category-Footer/Category-Footer'
-const axios = require('axios')
+
 class Category extends React.Component<{}, {}> {
   constructor(props:any) {
     super(props);
     this.state = {};
   }  
-  
-  /**
-   * get Category data from db and set into redux store.
-   */
-  async getDataFromDbAndSet() {
-    let props:any = this.props;
-    return await axios.get('http://192.168.29.254:3400/category').then((data:any) => {
-      props.sendDateToStore(data.data.data);
-      return data.data.data
-    })
-  }
 
   async componentDidMount() {
     let prop:any = this.props;
-    let result:any = await this.getDataFromDbAndSet();
-    await prop.setCurrentCategory(result[5]);
+    await prop.getCategory();
+    await prop.setCurrentCategory()
   }
 
   render() {
     let prop:any = this.props;
     const addCategory = async(event:any)=> {
       if(event.key == "Enter") {
-        await prop.addCategory(event);
-        await this.getDataFromDbAndSet();
+        let newCategory = {
+          "name":event.target.value,
+          "isClicked":false,
+          "tasks":[],
+          "icon":"fas fa-list lefthead-icon"
+        }
+        await prop.addCategory(newCategory);
+        prop.getCategory();
+        event.target.value = "";
       }
     }
+   
     return (
       <div className="left-container">
         <CategoryHeader />
         <ul className="list">{(prop.category).map((category:any) =>
           <li className={prop.currentCategory.name == category.name ? "clicked-list" : "listStyle"}
-            onClick={() => prop.setCurrentCategory(category)}>
+            onClick={() => prop.getCurrentCategory(category)}>
             <i className={category.icon}></i>
             <span className={prop.currentCategory.name == category.name 
               ? "listvalue-style listvalue-style-color-blue" : "listvalue-style"}>{category.name}</span>
@@ -65,33 +65,26 @@ class Category extends React.Component<{}, {}> {
  */
 const dispatchValue = (dispatch:any) => {
   return {
-    addCategory: async(event:any) => {
-      if(event.key == "Enter") {
-        let newCategory = {
-          "name":event.target.value,
-          "isClicked":false,
-          "tasks":[],
-          "icon":"fas fa-list lefthead-icon"
-        }
-        let result = await axios.post('http://192.168.29.254:3400/Category/',newCategory);
-        dispatch({
-          type: ADD_CATEGORY,
-          value: result.data 
-        })  
-        event.target.value = "";
-      }
-
-    },
-    setCurrentCategory: (name:any) => {
+    getCategory: () => {
       dispatch({
-        type:SET_CURRENT_CATEGORY,
-        currentCategory:name
+        type:GET_CATEGORY
       })
     },
-    sendDateToStore: (categoryList:any) => {
+    addCategory: (newCategory:any) => {
       dispatch({
-        type:SET_CATEGORY_LIST,
-        categoryList:categoryList
+        type: ADD_CATEGORY,
+        value: newCategory 
+      })  
+    },
+    getCurrentCategory: (currentCategoryId:any) => {
+      dispatch({
+        type:GET_CURRENT_CATEGORY,
+        categoryId:currentCategoryId._id
+      })
+    },
+    setCurrentCategory: () => {
+      dispatch({
+        type:SET_CURRENT_CATEGORY_TASKS,
       })
     }
   }

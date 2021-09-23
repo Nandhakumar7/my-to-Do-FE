@@ -1,8 +1,15 @@
+export const GET_CATEGORY ="getAllCategories"
 export const ADD_CATEGORY = "addNewCategory";
 export const DELETE_CATEGORY= "removeCategory";
 export const SET_CURRENT_CATEGORY ="setCurrentCategory";
+export const SET_CURRENT_CATEGORY_TASKS = "setTasksAsACurrentCategory"
+export const GET_CURRENT_CATEGORY="getCurrentCategory"
 export const UPDATE_CATEGORY="updateCategory";
 export const SET_CURRENT_TASK="setCurrentTask";
 export const SET_CATEGORY_LIST="setCategoryList";
 export const ADD_NEW_TASK="addNewTask";
 export const UPDATE_TASK="updateTask"
+export const GET_CURRENT_TASK="getCurrentTask"
+export const ADD_NEW_CATEGORY_SUCESS="newCategoryAddedSucefully";
+export const GETTING_ERROR="getAndSetError"
+export const GETTING_REFRESH="refreshAPage"

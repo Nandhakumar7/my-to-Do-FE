@@ -1,8 +1,7 @@
 import React from 'react';
 import './Task.css'
-import {ADD_NEW_TASK, SET_CURRENT_TASK, UPDATE_TASK, SET_CURRENT_CATEGORY}  from '../../../Actions/Action';
+import {ADD_NEW_TASK, GET_CURRENT_TASK, UPDATE_TASK }  from '../../../Actions/Action';
 import { connect } from 'react-redux';
-const axios = require("axios")
 
 class Task extends React.Component<{}, { isShowButton :boolean }> {
   constructor(props:any) {
@@ -13,14 +12,6 @@ class Task extends React.Component<{}, { isShowButton :boolean }> {
   showaddButton = (event:any) => {
     event.target.value == "" ?
       this.setState({isShowButton :false}) : this.setState({isShowButton :true})
-  }
-
-  setCurrentCategory = async() => {
-    let prop:any = this.props;
-    let result = await axios.get("http://192.168.29.254:3400/category/" + prop.currentCategory._id).then((data:any) => {
-      return data.data
-    })   
-    prop.setCurrentCategory(result) 
   }
 
   render() {
@@ -48,10 +39,10 @@ class Task extends React.Component<{}, { isShowButton :boolean }> {
         }
         prop.currentCategory.tasks.push(newTask);
         event.target.value = "";
-        await prop.addNewTask(newTask)
-        this.setCurrentCategory();
+        await prop.addNewTask(newTask);
       }
     }
+
     return (
       <div className={prop.isShowSteps ? "right-container right-container-width-change"
         : "right-container"}>
@@ -73,11 +64,11 @@ class Task extends React.Component<{}, { isShowButton :boolean }> {
         <ul className="list">{(prop.currentCategory.tasks).map((task:any) =>
           <li className="task-liststyle">
             <i className={task.isCompleted? "far fa-check-circle" : "far fa-circle"}
-              onClick={() => prop.changeIsCompletedValue(task)}></i>
+              onClick={() => prop.changeIsCompletedValue(task, prop.currentCategory._id)}></i>
             <div className={task.isCompleted ? "task-align complete" : "task-align"}
-              onClick={() => prop.setCurrentTask(task, prop.currentCategory)}>{task.taskName}</div>
+              onClick={() => prop.setCurrentTask(task, prop.currentCategory._id)}>{task.taskName}</div>
             <i className={task.isImportant ? "fas fa-star important" : "far fa-star important dark"}
-              onClick={() => prop.changeIsImportantValue(task)}></i>
+              onClick={() => prop.changeIsImportantValue(task, prop.currentCategory._id)}></i>
           </li>)}
           {(blankLines).map((task:any) =>
           <li><div className="line-liststyle"></div></li>)}
@@ -100,31 +91,27 @@ const dispatchValue = (dispatch:any) => {
         value:newTask
       })
     },
-    changeIsCompletedValue: (task:any) => {
+    changeIsCompletedValue: (task:any, categoryId:any) => {
       task.isCompleted = !task.isCompleted;
       dispatch({ 
         type:UPDATE_TASK,
-        value:task
+        task:task,
+        category_id: categoryId
       })
     },
-    changeIsImportantValue: (task:any) => {
+    changeIsImportantValue: (task:any, categoryId:any) => {
       task.isImportant = !task.isImportant;
       dispatch({ 
         type:UPDATE_TASK,
-        value:task
+        task:task,
+        category_id: categoryId
       })
     },
-    setCurrentCategory: (category:any) => {
-      dispatch({
-        type:SET_CURRENT_CATEGORY,
-        currentCategory:category
-      })
-    },
-    setCurrentTask: (task:any, currentCategory:any) => {
+    setCurrentTask: (task:any, categoryId:any) => {
       dispatch({ 
-        type:SET_CURRENT_TASK,
-        currentTask:task,
-        value:currentCategory
+        type:GET_CURRENT_TASK,
+        taskId:task._id,
+        categoryId:categoryId
       })
     }
   }

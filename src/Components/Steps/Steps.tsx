@@ -25,7 +25,7 @@ class Step extends React.Component<{}, { isShowButton :boolean }> {
       stepsList = (prop.currentTask.steps).map((step:any) =>
         <li className="subtask-liststyle">
           <i className="far fa-circle steps-icon blue"></i>
-          <span className="line-liststyle">{step}</span>
+          <span>{step}</span>
           <hr className="list-lines"></hr>
         </li>)
     }
@@ -38,7 +38,7 @@ class Step extends React.Component<{}, { isShowButton :boolean }> {
       if(event.key == "Enter") {
         prop.currentTask.steps.push(event.target.value);
         event.target.value = "";
-        prop.updateTaskSteps(prop.currentTask);
+        prop.updateTaskSteps(prop.currentTask, prop.currentCategory._id);
       }
     }
 
@@ -46,10 +46,10 @@ class Step extends React.Component<{}, { isShowButton :boolean }> {
       <div className={prop.isShowSteps ? "subtask-container show" :"subtask-container"}>
         <div className="subtask-headdiv">
           <i className={prop.currentTask.isCompleted? "far fa-check-circle blue" : "far fa-circle lefthead-icon"}
-            onClick={() => prop.changeIsCompletedValue(prop.currentTask)}></i>
+            onClick={() => prop.changeIsCompletedValue(prop.currentTask, prop.currentCategory._id)}></i>
           <h1 className={prop.currentTask.isCompleted? "subtask-head Completed" : "subtask-head dark"}>{prop.currentTask.taskName}</h1>
           <i className={prop.currentTask.isImportant ? "fas fa-star important blue" : "far fa-star important"}
-            onClick={() => prop.changeIsImportantValue(prop.currentTask)}></i>
+            onClick={() => prop.changeIsImportantValue(prop.currentTask, prop.currentCategory._id)}></i>
         </div>
         <div className="subtask-bottom">
           <ul className="fa-ul subtask-list">{stepsList}</ul>
@@ -94,24 +94,27 @@ class Step extends React.Component<{}, { isShowButton :boolean }> {
  */
 const dispatchValue = (dispatch:any) => {
   return { 
-    updateTaskSteps: (task:any) => {
+    updateTaskSteps: (task:any, categoryId:any) => {
       dispatch({ 
         type:UPDATE_TASK,
-        value:task
+        task:task,
+        category_id: categoryId
       })
     },
-    changeIsCompletedValue: (task:any) => {
+    changeIsCompletedValue: (task:any, categoryId:any) => {
       task.isCompleted = !task.isCompleted;
       dispatch({ 
         type:UPDATE_TASK,
-        value:task
+        task:task,
+        category_id: categoryId
       })
     },
-    changeIsImportantValue: (task:any) => {
+    changeIsImportantValue: (task:any, categoryId:any) => {
       task.isImportant = !task.isImportant;
       dispatch({ 
         type:UPDATE_TASK,
-        value:task
+        task:task,
+        category_id: categoryId
       })
     }
   }
@@ -127,7 +130,8 @@ const mapStateToProbs = (state:any) => {
   return {
     currentTask: state.currentTask,
     isProcessed : state.isprocessed,
-    isShowSteps: state.isShowSteps
+    isShowSteps: state.isShowSteps,
+    currentCategory: state.currentCategory
   }
 }
 
